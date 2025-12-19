@@ -1,0 +1,892 @@
+// Default exercise library
+const DEFAULT_EXERCISES = [
+  { id: 1, name: 'Lowbar Squat', bodyPart: 'Squat', category: 'Movement_Pattern' },
+  { id: 2, name: 'Highbar Squat', bodyPart: 'Squat', category: 'Movement_Pattern' },
+  { id: 3, name: 'SSB', bodyPart: 'Squat', category: 'Movement_Pattern' },
+  { id: 4, name: 'Heel Raised SSB', bodyPart: 'Squat', category: 'Movement_Pattern' },
+  { id: 5, name: 'Front Squat', bodyPart: 'Squat', category: 'Movement_Pattern' },
+  { id: 6, name: 'Zombie Squat', bodyPart: 'Squat', category: 'Movement_Pattern' },
+  { id: 7, name: 'Pause Squat', bodyPart: 'Squat', category: 'Movement_Pattern' },
+  { id: 8, name: 'Tempo Squat', bodyPart: 'Squat', category: 'Movement_Pattern' },
+  { id: 9, name: 'Platt Squat', bodyPart: 'Squat', category: 'Movement_Pattern' },
+  { id: 10, name: 'Belt Squat', bodyPart: 'Squat', category: 'Movement_Pattern' },
+  { id: 11, name: 'Lever Squat', bodyPart: 'Squat', category: 'Movement_Pattern' },
+  { id: 12, name: 'Pendulum Squat', bodyPart: 'Squat', category: 'Movement_Pattern' },
+  { id: 13, name: 'Hack Squat', bodyPart: 'Squat', category: 'Movement_Pattern' },
+  { id: 14, name: 'Goblet Squat', bodyPart: 'Squat', category: 'Movement_Pattern' },
+  { id: 15, name: 'HEGS', bodyPart: 'Squat', category: 'Movement_Pattern' },
+  { id: 16, name: 'Sissy Squat', bodyPart: 'Squat', category: 'Movement_Pattern' },
+  { id: 17, name: 'Conventional Deadlift', bodyPart: 'Hinge', category: 'Movement_Pattern' },
+  { id: 18, name: 'Sumo Deadlift', bodyPart: 'Hinge', category: 'Movement_Pattern' },
+  { id: 19, name: 'Deficit Deadlift', bodyPart: 'Hinge', category: 'Movement_Pattern' },
+  { id: 20, name: 'Beltless Deficit Deadlift', bodyPart: 'Hinge', category: 'Movement_Pattern' },
+  { id: 21, name: 'Pause Deadlift', bodyPart: 'Hinge', category: 'Movement_Pattern' },
+  { id: 22, name: 'DB Deadlift', bodyPart: 'Hinge', category: 'Movement_Pattern' },
+  { id: 23, name: 'DB Suitcase Deadlift', bodyPart: 'Hinge', category: 'Movement_Pattern' },
+  { id: 24, name: 'BB RDL', bodyPart: 'Hinge', category: 'Movement_Pattern' },
+  { id: 25, name: 'DB RDL', bodyPart: 'Hinge', category: 'Movement_Pattern' },
+  { id: 26, name: 'DB SL RDL', bodyPart: 'Hinge', category: 'Movement_Pattern' },
+  { id: 27, name: 'Suitcase RDL', bodyPart: 'Hinge', category: 'Movement_Pattern' },
+  { id: 28, name: 'BB Good Mornings', bodyPart: 'Hinge', category: 'Movement_Pattern' },
+  { id: 29, name: 'DB Good Mornings', bodyPart: 'Hinge', category: 'Movement_Pattern' },
+  { id: 30, name: 'Glute Ham Developer', bodyPart: 'Hinge', category: 'Movement_Pattern' },
+  { id: 31, name: 'Trap Bar Deadlift', bodyPart: 'Hinge', category: 'Movement_Pattern' },
+  { id: 32, name: 'B-Stance RDL', bodyPart: 'Hinge', category: 'Movement_Pattern' },
+  { id: 33, name: 'Barbell Bench', bodyPart: 'Horizontal Push', category: 'Movement_Pattern' },
+  { id: 34, name: 'Comp Bench', bodyPart: 'Horizontal Push', category: 'Movement_Pattern' },
+  { id: 35, name: 'Close Grip Bench', bodyPart: 'Horizontal Push', category: 'Movement_Pattern' },
+  { id: 36, name: 'Pin Press', bodyPart: 'Horizontal Push', category: 'Movement_Pattern' },
+  { id: 37, name: 'Tempo Bench', bodyPart: 'Horizontal Push', category: 'Movement_Pattern' },
+  { id: 38, name: 'Spotto Bench', bodyPart: 'Horizontal Push', category: 'Movement_Pattern' },
+  { id: 39, name: 'Pause Bench', bodyPart: 'Horizontal Push', category: 'Movement_Pattern' },
+  { id: 40, name: 'BB 30° Incline Bench', bodyPart: 'Horizontal Push', category: 'Movement_Pattern' },
+  { id: 41, name: 'BB 45° Incline Bench', bodyPart: 'Horizontal Push', category: 'Movement_Pattern' },
+  { id: 42, name: 'DB 30° Incline Bench', bodyPart: 'Horizontal Push', category: 'Movement_Pattern' },
+  { id: 43, name: 'DB 45° Incline Bench', bodyPart: 'Horizontal Push', category: 'Movement_Pattern' },
+  { id: 44, name: 'BB Overhead Press', bodyPart: 'Vertical Push', category: 'Movement_Pattern' },
+  { id: 45, name: 'BB Pin Press', bodyPart: 'Vertical Push', category: 'Movement_Pattern' },
+  { id: 46, name: 'BB Pause Press', bodyPart: 'Vertical Push', category: 'Movement_Pattern' },
+  { id: 47, name: 'Log Press', bodyPart: 'Vertical Push', category: 'Movement_Pattern' },
+  { id: 48, name: 'DB Overhead Press', bodyPart: 'Vertical Push', category: 'Movement_Pattern' },
+  { id: 49, name: 'DB Seated Overhead Press', bodyPart: 'Vertical Push', category: 'Movement_Pattern' },
+  { id: 50, name: 'Cable Shoulder Press', bodyPart: 'Vertical Push', category: 'Movement_Pattern' },
+  { id: 51, name: 'Push Press', bodyPart: 'Vertical Push', category: 'Movement_Pattern' },
+  { id: 52, name: 'BB Bodybuilder Row', bodyPart: 'Horizontal Pull', category: 'Movement_Pattern' },
+  { id: 53, name: 'BB Chained Row', bodyPart: 'Horizontal Pull', category: 'Movement_Pattern' },
+  { id: 54, name: 'BB Deficit Row', bodyPart: 'Horizontal Pull', category: 'Movement_Pattern' },
+  { id: 55, name: 'BB Row', bodyPart: 'Horizontal Pull', category: 'Movement_Pattern' },
+  { id: 56, name: 'BB Upright Row', bodyPart: 'Horizontal Pull', category: 'Movement_Pattern' },
+  { id: 57, name: 'CR Narrow Grip', bodyPart: 'Horizontal Pull', category: 'Movement_Pattern' },
+  { id: 58, name: 'CR Regular Grip', bodyPart: 'Horizontal Pull', category: 'Movement_Pattern' },
+  { id: 59, name: 'CR Wide Grip', bodyPart: 'Horizontal Pull', category: 'Movement_Pattern' },
+  { id: 60, name: 'CSR Narrow Grip', bodyPart: 'Horizontal Pull', category: 'Movement_Pattern' },
+  { id: 61, name: 'CSR Regular Grip', bodyPart: 'Horizontal Pull', category: 'Movement_Pattern' },
+  { id: 62, name: 'CSR Wide Grip', bodyPart: 'Horizontal Pull', category: 'Movement_Pattern' },
+  { id: 63, name: 'DB Bentover Rows', bodyPart: 'Horizontal Pull', category: 'Movement_Pattern' },
+  { id: 64, name: 'DB Incline Seal Rows', bodyPart: 'Horizontal Pull', category: 'Movement_Pattern' },
+  { id: 65, name: 'DB SA Rows', bodyPart: 'Horizontal Pull', category: 'Movement_Pattern' },
+  { id: 66, name: 'DB Seal Rows', bodyPart: 'Horizontal Pull', category: 'Movement_Pattern' },
+  { id: 67, name: 'Horizontal Iliac Pull Around', bodyPart: 'Horizontal Pull', category: 'Movement_Pattern' },
+  { id: 68, name: 'SA CS Cable Row', bodyPart: 'Horizontal Pull', category: 'Movement_Pattern' },
+  { id: 69, name: 'T-bar Row', bodyPart: 'Horizontal Pull', category: 'Movement_Pattern' },
+  { id: 70, name: 'LPD Regular Grip', bodyPart: 'Vertical Pull', category: 'Movement_Pattern' },
+  { id: 71, name: '1/2 Kneeling SA Cable Pulldown', bodyPart: 'Vertical Pull', category: 'Movement_Pattern' },
+  { id: 72, name: 'Chin Ups', bodyPart: 'Vertical Pull', category: 'Movement_Pattern' },
+  { id: 73, name: 'Lat Pullovers', bodyPart: 'Vertical Pull', category: 'Movement_Pattern' },
+  { id: 74, name: 'LPD Narrow Grip', bodyPart: 'Vertical Pull', category: 'Movement_Pattern' },
+  { id: 75, name: 'LPD Wide Grip', bodyPart: 'Vertical Pull', category: 'Movement_Pattern' },
+  { id: 76, name: 'Negative Chin Ups', bodyPart: 'Vertical Pull', category: 'Movement_Pattern' },
+  { id: 77, name: 'Negative Pull Ups', bodyPart: 'Vertical Pull', category: 'Movement_Pattern' },
+  { id: 78, name: 'Pull Ups', bodyPart: 'Vertical Pull', category: 'Movement_Pattern' },
+  { id: 79, name: 'Vertical Iliac Pull Around', bodyPart: 'Vertical Pull', category: 'Movement_Pattern' },
+  { id: 80, name: 'DB Farmers Carry', bodyPart: 'Carry', category: 'Movement_Pattern' },
+  { id: 81, name: 'DB Suitcase Carry', bodyPart: 'Carry', category: 'Movement_Pattern' },
+  { id: 82, name: 'DB Waiters Carry', bodyPart: 'Carry', category: 'Movement_Pattern' },
+  { id: 83, name: 'DB SA Overhead Carry', bodyPart: 'Carry', category: 'Movement_Pattern' },
+  { id: 84, name: 'Trap Bar Hold', bodyPart: 'Carry', category: 'Movement_Pattern' },
+  { id: 85, name: 'Bar Dead Hang', bodyPart: 'Hang', category: 'Movement_Pattern' },
+  { id: 86, name: 'Bar Active Hang', bodyPart: 'Hang', category: 'Movement_Pattern' },
+  { id: 87, name: 'HB Straight Arm Hang', bodyPart: 'Hang', category: 'Movement_Pattern' },
+  { id: 88, name: 'HB Bent Arm Hang', bodyPart: 'Hang', category: 'Movement_Pattern' },
+  { id: 89, name: 'HB Lock Off Hang', bodyPart: 'Hang', category: 'Movement_Pattern' }
+].concat([
+  // Isolation exercises start at id 90
+  { id: 90, name: 'Comp Bench', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 91, name: 'Barbell Bench', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 92, name: 'Close Grip Bench', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 93, name: 'Tempo Bench', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 94, name: 'Spotto Bench', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 95, name: 'Pause Bench', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 96, name: 'Pin Press', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 97, name: 'Chained Bench', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 98, name: 'Banded Bench', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 99, name: 'Earthquake Bar Bench', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 100, name: 'DB Bench', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 101, name: 'SA DB Bench', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 102, name: 'BB 30° Incline Bench', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 103, name: 'BB 45° Incline Bench', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 104, name: 'DB 30° Incline Bench', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 105, name: 'DB 45° Incline Bench', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 106, name: 'DB Close Grip Bench', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 107, name: 'DB Fly', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 108, name: 'Low Cable Fly', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 109, name: 'Mid Cable Fly', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 110, name: 'High Cable Fly', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 111, name: 'Seated Cable Fly', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 112, name: 'Incline Bench Cable Fly', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 113, name: 'Plate Press', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 114, name: 'Swiss Bar Regular Grip', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 115, name: 'Swiss Bar Close Grip', bodyPart: 'Pecs', category: 'Isolation' },
+  { id: 116, name: 'BB OH Press', bodyPart: 'Side Delts', category: 'Isolation' },
+  { id: 117, name: 'BB Pin Press', bodyPart: 'Side Delts', category: 'Isolation' },
+  { id: 118, name: 'BB Pause Press', bodyPart: 'Side Delts', category: 'Isolation' },
+  { id: 119, name: 'BB Chained Press', bodyPart: 'Side Delts', category: 'Isolation' },
+  { id: 120, name: 'BB Banded Press', bodyPart: 'Side Delts', category: 'Isolation' },
+  { id: 121, name: 'Log Press', bodyPart: 'Side Delts', category: 'Isolation' },
+  { id: 122, name: 'DB OH Press', bodyPart: 'Side Delts', category: 'Isolation' },
+  { id: 123, name: 'DB Seated OH Press', bodyPart: 'Side Delts', category: 'Isolation' },
+  { id: 124, name: 'Cable Shoulder Press', bodyPart: 'Side Delts', category: 'Isolation' },
+  { id: 125, name: 'DB Side Lateral Raises', bodyPart: 'Side Delts', category: 'Isolation' },
+  { id: 126, name: 'Cable Side Lateral Raises', bodyPart: 'Side Delts', category: 'Isolation' },
+  { id: 127, name: 'Push Press', bodyPart: 'Side Delts', category: 'Isolation' },
+  { id: 128, name: 'BB Deficit Row', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 129, name: 'BB Row', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 130, name: 'BB Bodybuilder Row', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 131, name: 'BB Upright Row', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 132, name: 'BB Chained Row', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 133, name: 'Paused T-bar Row', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 134, name: 'LPD Regular Grip', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 135, name: 'LPD Wide Grip', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 136, name: 'LPD Narrow Grip', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 137, name: 'CSR Regular Grip', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 138, name: 'CSR Wide Grip', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 139, name: 'CSR Narrow Grip', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 140, name: 'Lat Pullovers', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 141, name: 'DB Seal Rows', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 142, name: 'DB Incline Seal Rows', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 143, name: 'DB Bentover Rows', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 144, name: 'DB SA Rows', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 145, name: 'SA CS Cable Row', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 146, name: 'Vertical Iliac Pull Around', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 147, name: 'Horizontal Iliac Pull Around', bodyPart: 'Lats', category: 'Isolation' },
+  { id: 148, name: 'Pause Squat', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 149, name: 'Barbell Squat', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 150, name: 'Lowbar Squat', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 151, name: 'Highbar Squat', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 152, name: 'SSB', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 153, name: 'Heel Raised SSB', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 154, name: 'Front Squat', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 155, name: 'Zombie Squat', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 156, name: 'Tempo Squat', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 157, name: 'Chained Squat', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 158, name: 'Banded Squat', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 159, name: 'Platt Squat', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 160, name: 'Belt Squat', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 161, name: 'Lever Squat', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 162, name: 'Pendulum Squat', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 163, name: 'Hack Squat', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 164, name: 'Goblet Squat', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 165, name: 'HEGS', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 166, name: 'Bulgarian Split Squats', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 167, name: 'Leg Press', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 168, name: 'Quad Extension', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 169, name: 'Sissy Squats', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 170, name: 'Front Foot Elevated Lunge', bodyPart: 'Quads', category: 'Isolation' },
+  { id: 171, name: 'Conventional Deadlift', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 172, name: 'Sumo Deadlift', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 173, name: 'Trap Bar Deadlift', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 174, name: 'Deficit Deadlift', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 175, name: 'Beltless Deficit Deadlift', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 176, name: 'Pause Deadlift', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 177, name: 'Chained Deadlift', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 178, name: 'Banded Deadlift', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 179, name: 'DB Deadlift', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 180, name: 'DB Suitcase Deadlift', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 181, name: 'BB RDL', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 182, name: 'DB RDL', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 183, name: 'DB SL RDL', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 184, name: 'B-Stance RDL', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 185, name: 'Suitcase RDL', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 186, name: 'BB Good Mornings', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 187, name: 'DB Good Mornings', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 188, name: 'Lying Cable Hamstring Curl', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 189, name: 'Banded Lying Hamstring Curl', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 190, name: 'Nordic Hamstring Curls', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 191, name: 'Glute Ham Developer', bodyPart: 'Hamstrings', category: 'Isolation' },
+  { id: 192, name: 'Standing Calf Raises', bodyPart: 'Calves', category: 'Isolation' },
+  { id: 193, name: 'Seated Calf Raises', bodyPart: 'Calves', category: 'Isolation' },
+  { id: 194, name: 'DB Calf Raises', bodyPart: 'Calves', category: 'Isolation' },
+  { id: 195, name: 'SL Standing Calf Raises', bodyPart: 'Calves', category: 'Isolation' },
+  { id: 196, name: 'SL Seated Calf Raises', bodyPart: 'Calves', category: 'Isolation' },
+  { id: 197, name: 'Band Pull Aparts', bodyPart: 'Rear Delts', category: 'Isolation' },
+  { id: 198, name: 'Cable Face Pulls', bodyPart: 'Rear Delts', category: 'Isolation' },
+  { id: 199, name: 'CS Rear Delt Fly', bodyPart: 'Rear Delts', category: 'Isolation' },
+  { id: 200, name: 'CSR Wide Grip', bodyPart: 'Rear Delts', category: 'Isolation' },
+  { id: 201, name: 'Bentover Rear Delt Fly', bodyPart: 'Rear Delts', category: 'Isolation' },
+  { id: 202, name: 'YTWs', bodyPart: 'Rear Delts', category: 'Isolation' },
+  { id: 203, name: 'YTAs', bodyPart: 'Rear Delts', category: 'Isolation' },
+  { id: 204, name: 'Banded Face Pulls', bodyPart: 'Rear Delts', category: 'Isolation' },
+  { id: 205, name: 'Inverted Band Pull Aparts', bodyPart: 'Rear Delts', category: 'Isolation' },
+  { id: 206, name: 'Cable Crossover Rear Delt Flyes', bodyPart: 'Rear Delts', category: 'Isolation' },
+  { id: 207, name: 'DB Shrugs', bodyPart: 'Traps', category: 'Isolation' },
+  { id: 208, name: 'Barbell Shrugs', bodyPart: 'Traps', category: 'Isolation' },
+  { id: 209, name: 'Sumo Deadlift', bodyPart: 'Traps', category: 'Isolation' },
+  { id: 210, name: 'Conventional Deadlift', bodyPart: 'Traps', category: 'Isolation' },
+  { id: 211, name: 'DB Front Raise', bodyPart: 'Front Delts', category: 'Isolation' },
+  { id: 212, name: 'Cable Front Raise', bodyPart: 'Front Delts', category: 'Isolation' },
+  { id: 213, name: 'DB Bicep Curl', bodyPart: 'Bis', category: 'Isolation' },
+  { id: 214, name: 'DB Hammer Curl', bodyPart: 'Bis', category: 'Isolation' },
+  { id: 215, name: 'DB Incline Curl', bodyPart: 'Bis', category: 'Isolation' },
+  { id: 216, name: 'Cable Bicep Curl', bodyPart: 'Bis', category: 'Isolation' },
+  { id: 217, name: 'Cable Incline Curl', bodyPart: 'Bis', category: 'Isolation' },
+  { id: 218, name: 'Preacher Curl', bodyPart: 'Bis', category: 'Isolation' },
+  { id: 219, name: 'EZBimport React, { useState, useEffect } from 'react';
+import { Plus, Trash2, Copy, FileSpreadsheet, Download } from 'lucide-react';
+
+// Default exercise library
+const DEFAULT_EXERCISES = [
+  { id: 1, name: 'Barbell Squat', category: 'Legs', equipment: 'Barbell' },
+  { id: 2, name: 'Bench Press', category: 'Chest', equipment: 'Barbell' },
+  { id: 3, name: 'Deadlift', category: 'Back', equipment: 'Barbell' },
+  { id: 4, name: 'Overhead Press', category: 'Shoulders', equipment: 'Barbell' },
+  { id: 5, name: 'Barbell Row', category: 'Back', equipment: 'Barbell' },
+  { id: 6, name: 'Pull-ups', category: 'Back', equipment: 'Bodyweight' },
+  { id: 7, name: 'Dips', category: 'Chest', equipment: 'Bodyweight' },
+  { id: 8, name: 'Lunges', category: 'Legs', equipment: 'Bodyweight' },
+  { id: 9, name: 'Dumbbell Curl', category: 'Arms', equipment: 'Dumbbell' },
+  { id: 10, name: 'Tricep Extension', category: 'Arms', equipment: 'Dumbbell' },
+  { id: 11, name: 'Leg Press', category: 'Legs', equipment: 'Machine' },
+  { id: 12, name: 'Lat Pulldown', category: 'Back', equipment: 'Machine' },
+  { id: 13, name: 'Leg Curl', category: 'Legs', equipment: 'Machine' },
+  { id: 14, name: 'Cable Fly', category: 'Chest', equipment: 'Cable' },
+  { id: 15, name: 'Face Pulls', category: 'Shoulders', equipment: 'Cable' },
+];
+
+const WorkoutProgramDesigner = () => {
+  const [exercises, setExercises] = useState(DEFAULT_EXERCISES);
+  const [programs, setPrograms] = useState([]);
+  const [currentProgram, setCurrentProgram] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filterCategory, setFilterCategory] = useState('All');
+  const [newExercise, setNewExercise] = useState({ name: '', category: '', equipment: '' });
+  const [showAddExercise, setShowAddExercise] = useState(false);
+
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem('workoutData') || '{}');
+    if (saved.exercises) setExercises(saved.exercises);
+    if (saved.programs) {
+      // Migrate old programs to new structure with weeks
+      const migratedPrograms = saved.programs.map(prog => {
+        if (!prog.weeks && prog.days) {
+          // Old structure - convert to new structure
+          return {
+            ...prog,
+            weeks: [{
+              id: Date.now(),
+              name: 'Week 1',
+              days: prog.days
+            }]
+          };
+        }
+        return prog;
+      });
+      setPrograms(migratedPrograms);
+    }
+  }, []);
+
+  const saveData = (updatedExercises, updatedPrograms) => {
+    localStorage.setItem('workoutData', JSON.stringify({
+      exercises: updatedExercises || exercises,
+      programs: updatedPrograms || programs
+    }));
+  };
+
+  const categories = ['All', ...new Set(exercises.map(e => e.category))];
+
+  const filteredExercises = exercises.filter(ex => {
+    const matchesSearch = ex.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = filterCategory === 'All' || ex.category === filterCategory;
+    return matchesSearch && matchesCategory;
+  });
+
+  const createNewProgram = () => {
+    const newProg = {
+      id: Date.now(),
+      name: 'New Program',
+      weeks: [{
+        id: Date.now(),
+        name: 'Week 1',
+        days: [{ id: Date.now() + 1, name: 'Day 1', exercises: [] }]
+      }]
+    };
+    const updated = [...programs, newProg];
+    setPrograms(updated);
+    setCurrentProgram(newProg);
+    saveData(exercises, updated);
+  };
+
+  const updateProgramName = (name) => {
+    const updated = { ...currentProgram, name };
+    setCurrentProgram(updated);
+    const updatedPrograms = programs.map(p => p.id === updated.id ? updated : p);
+    setPrograms(updatedPrograms);
+    saveData(exercises, updatedPrograms);
+  };
+
+  const addWeek = () => {
+    const newWeek = {
+      id: Date.now(),
+      name: `Week ${currentProgram.weeks.length + 1}`,
+      days: [{ id: Date.now() + 1, name: 'Day 1', exercises: [] }]
+    };
+    const updated = {
+      ...currentProgram,
+      weeks: [...currentProgram.weeks, newWeek]
+    };
+    setCurrentProgram(updated);
+    const updatedPrograms = programs.map(p => p.id === updated.id ? updated : p);
+    setPrograms(updatedPrograms);
+    saveData(exercises, updatedPrograms);
+  };
+
+  const updateWeekName = (weekId, name) => {
+    const updated = {
+      ...currentProgram,
+      weeks: currentProgram.weeks.map(w => w.id === weekId ? { ...w, name } : w)
+    };
+    setCurrentProgram(updated);
+    const updatedPrograms = programs.map(p => p.id === updated.id ? updated : p);
+    setPrograms(updatedPrograms);
+    saveData(exercises, updatedPrograms);
+  };
+
+  const removeWeek = (weekId) => {
+    const updated = {
+      ...currentProgram,
+      weeks: currentProgram.weeks.filter(w => w.id !== weekId)
+    };
+    setCurrentProgram(updated);
+    const updatedPrograms = programs.map(p => p.id === updated.id ? updated : p);
+    setPrograms(updatedPrograms);
+    saveData(exercises, updatedPrograms);
+  };
+
+  const addDay = (weekId) => {
+    const updated = {
+      ...currentProgram,
+      weeks: currentProgram.weeks.map(w =>
+        w.id === weekId ? {
+          ...w,
+          days: [...w.days, {
+            id: Date.now(),
+            name: `Day ${w.days.length + 1}`,
+            exercises: []
+          }]
+        } : w
+      )
+    };
+    setCurrentProgram(updated);
+    const updatedPrograms = programs.map(p => p.id === updated.id ? updated : p);
+    setPrograms(updatedPrograms);
+    saveData(exercises, updatedPrograms);
+  };
+
+  const updateDayName = (weekId, dayId, name) => {
+    const updated = {
+      ...currentProgram,
+      weeks: currentProgram.weeks.map(w =>
+        w.id === weekId ? {
+          ...w,
+          days: w.days.map(d => d.id === dayId ? { ...d, name } : d)
+        } : w
+      )
+    };
+    setCurrentProgram(updated);
+    const updatedPrograms = programs.map(p => p.id === updated.id ? updated : p);
+    setPrograms(updatedPrograms);
+    saveData(exercises, updatedPrograms);
+  };
+
+  const removeDay = (weekId, dayId) => {
+    const updated = {
+      ...currentProgram,
+      weeks: currentProgram.weeks.map(w =>
+        w.id === weekId ? {
+          ...w,
+          days: w.days.filter(d => d.id !== dayId)
+        } : w
+      )
+    };
+    setCurrentProgram(updated);
+    const updatedPrograms = programs.map(p => p.id === updated.id ? updated : p);
+    setPrograms(updatedPrograms);
+    saveData(exercises, updatedPrograms);
+  };
+
+  const addExerciseToDay = (weekId, dayId, exercise) => {
+    const workoutExercise = {
+      id: Date.now(),
+      exerciseId: exercise.id,
+      name: exercise.name,
+      sets: 3,
+      reps: 10,
+      notes: ''
+    };
+    const updated = {
+      ...currentProgram,
+      weeks: currentProgram.weeks.map(w =>
+        w.id === weekId ? {
+          ...w,
+          days: w.days.map(d =>
+            d.id === dayId ? { ...d, exercises: [...d.exercises, workoutExercise] } : d
+          )
+        } : w
+      )
+    };
+    setCurrentProgram(updated);
+    const updatedPrograms = programs.map(p => p.id === updated.id ? updated : p);
+    setPrograms(updatedPrograms);
+    saveData(exercises, updatedPrograms);
+  };
+
+  const updateExerciseInDay = (weekId, dayId, exerciseId, field, value) => {
+    const updated = {
+      ...currentProgram,
+      weeks: currentProgram.weeks.map(w =>
+        w.id === weekId ? {
+          ...w,
+          days: w.days.map(d =>
+            d.id === dayId ? {
+              ...d,
+              exercises: d.exercises.map(ex =>
+                ex.id === exerciseId ? { ...ex, [field]: value } : ex
+              )
+            } : d
+          )
+        } : w
+      )
+    };
+    setCurrentProgram(updated);
+    const updatedPrograms = programs.map(p => p.id === updated.id ? updated : p);
+    setPrograms(updatedPrograms);
+    saveData(exercises, updatedPrograms);
+  };
+
+  const removeExerciseFromDay = (weekId, dayId, exerciseId) => {
+    const updated = {
+      ...currentProgram,
+      weeks: currentProgram.weeks.map(w =>
+        w.id === weekId ? {
+          ...w,
+          days: w.days.map(d =>
+            d.id === dayId ? {
+              ...d,
+              exercises: d.exercises.filter(ex => ex.id !== exerciseId)
+            } : d
+          )
+        } : w
+      )
+    };
+    setCurrentProgram(updated);
+    const updatedPrograms = programs.map(p => p.id === updated.id ? updated : p);
+    setPrograms(updatedPrograms);
+    saveData(exercises, updatedPrograms);
+  };
+
+  const deleteProgram = (programId) => {
+    const updated = programs.filter(p => p.id !== programId);
+    setPrograms(updated);
+    if (currentProgram?.id === programId) setCurrentProgram(null);
+    saveData(exercises, updated);
+  };
+
+  const duplicateProgram = (program) => {
+    const duplicated = {
+      ...program,
+      id: Date.now(),
+      name: `${program.name} (Copy)`,
+      weeks: program.weeks.map(w => ({
+        ...w,
+        id: Date.now() + Math.random(),
+        days: w.days.map(d => ({
+          ...d,
+          id: Date.now() + Math.random() * 1000,
+          exercises: d.exercises.map(ex => ({ ...ex, id: Date.now() + Math.random() * 10000 }))
+        }))
+      }))
+    };
+    const updated = [...programs, duplicated];
+    setPrograms(updated);
+    saveData(exercises, updated);
+  };
+
+  const addCustomExercise = () => {
+    if (!newExercise.name || !newExercise.category || !newExercise.equipment) return;
+    const exercise = { ...newExercise, id: Date.now() };
+    const updated = [...exercises, exercise];
+    setExercises(updated);
+    saveData(updated, programs);
+    setNewExercise({ name: '', category: '', equipment: '' });
+    setShowAddExercise(false);
+  };
+
+  const exportProgramJSON = (program) => {
+    const dataStr = JSON.stringify(program, null, 2);
+    const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+    const exportFileDefaultName = `${program.name.replace(/\s+/g, '_')}.json`;
+    const linkElement = document.createElement('a');
+    linkElement.setAttribute('href', dataUri);
+    linkElement.setAttribute('download', exportFileDefaultName);
+    linkElement.click();
+  };
+
+  const exportProgramCSV = (program) => {
+    let csv = '';
+    
+    // Program title
+    csv += `"${program.name}"\n\n`;
+    
+    program.weeks.forEach((week, weekIndex) => {
+      // Two empty rows before week
+      csv += '\n\n';
+      
+      // Week header
+      csv += `"${week.name}"\n`;
+      
+      // Find max number of exercises in any day this week
+      const maxExercises = Math.max(...week.days.map(d => d.exercises.length), 0);
+      
+      // Create rows for this week
+      const rows = [];
+      
+      // Day headers row
+      const headerRow = [];
+      week.days.forEach((day, dayIdx) => {
+        headerRow.push(''); // Empty column before day
+        headerRow.push('"' + day.name + '"');
+        for (let i = 1; i < 7; i++) headerRow.push(''); // Span across columns
+        if (dayIdx < week.days.length - 1) headerRow.push(''); // Spacing between days
+      });
+      rows.push(headerRow.join(','));
+      
+      // Column headers row
+      const colHeaderRow = [];
+      week.days.forEach((day, dayIdx) => {
+        colHeaderRow.push(''); // Empty column before day
+        colHeaderRow.push('"Exercise"');
+        colHeaderRow.push('"Sets"');
+        colHeaderRow.push('"Reps"');
+        colHeaderRow.push('"Intensity"');
+        colHeaderRow.push('"Load"');
+        colHeaderRow.push('"Actual"');
+        colHeaderRow.push('"Comments"');
+        if (dayIdx < week.days.length - 1) colHeaderRow.push(''); // Spacing between days
+      });
+      rows.push(colHeaderRow.join(','));
+      
+      // Exercise rows
+      for (let i = 0; i < maxExercises; i++) {
+        const exerciseRow = [];
+        week.days.forEach((day, dayIdx) => {
+          exerciseRow.push(''); // Empty column before day
+          const ex = day.exercises[i];
+          if (ex) {
+            exerciseRow.push('"' + ex.name + '"');
+            exerciseRow.push('"' + ex.sets + '"');
+            exerciseRow.push('"' + ex.reps + '"');
+            exerciseRow.push('""'); // Intensity
+            exerciseRow.push('""'); // Load
+            exerciseRow.push('""'); // Actual
+            exerciseRow.push('"' + (ex.notes || '') + '"');
+          } else {
+            // Empty cells for alignment
+            for (let j = 0; j < 7; j++) exerciseRow.push('');
+          }
+          if (dayIdx < week.days.length - 1) exerciseRow.push(''); // Spacing between days
+        });
+        rows.push(exerciseRow.join(','));
+      }
+      
+      csv += rows.join('\n') + '\n';
+      
+      // Two empty rows after week
+      csv += '\n\n';
+      
+      // Separator line between weeks (except after last week)
+      if (weekIndex < program.weeks.length - 1) {
+        const separatorCells = week.days.length * 9; // 8 columns + 1 empty per day
+        csv += Array(separatorCells).fill('""').join(',') + '\n';
+      }
+    });
+    
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', `${program.name.replace(/\s+/g, '_')}.csv`);
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 p-6">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-4xl font-bold text-gray-900 mb-8">Workout Program Designer</h1>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Exercise Library */}
+          <div className="lg:col-span-1 bg-white rounded-lg shadow p-6">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-2xl font-semibold">Exercise Library</h2>
+              <button
+                onClick={() => setShowAddExercise(!showAddExercise)}
+                className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              >
+                <Plus size={20} />
+              </button>
+            </div>
+
+            {showAddExercise && (
+              <div className="mb-4 p-4 bg-gray-50 rounded">
+                <input
+                  type="text"
+                  placeholder="Exercise name"
+                  value={newExercise.name}
+                  onChange={(e) => setNewExercise({ ...newExercise, name: e.target.value })}
+                  className="w-full p-2 border rounded mb-2"
+                />
+                <input
+                  type="text"
+                  placeholder="Category"
+                  value={newExercise.category}
+                  onChange={(e) => setNewExercise({ ...newExercise, category: e.target.value })}
+                  className="w-full p-2 border rounded mb-2"
+                />
+                <input
+                  type="text"
+                  placeholder="Equipment"
+                  value={newExercise.equipment}
+                  onChange={(e) => setNewExercise({ ...newExercise, equipment: e.target.value })}
+                  className="w-full p-2 border rounded mb-2"
+                />
+                <button
+                  onClick={addCustomExercise}
+                  className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600"
+                >
+                  Add Exercise
+                </button>
+              </div>
+            )}
+
+            <input
+              type="text"
+              placeholder="Search exercises..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full p-2 border rounded mb-4"
+            />
+
+            <select
+              value={filterCategory}
+              onChange={(e) => setFilterCategory(e.target.value)}
+              className="w-full p-2 border rounded mb-4"
+            >
+              {categories.map(cat => (
+                <option key={cat} value={cat}>{cat}</option>
+              ))}
+            </select>
+
+            <div className="space-y-2 max-h-96 overflow-y-auto">
+              {filteredExercises.map(exercise => (
+                <div
+                  key={exercise.id}
+                  className="p-3 bg-gray-50 rounded hover:bg-gray-100 cursor-pointer"
+                >
+                  <div className="font-medium">{exercise.name}</div>
+                  <div className="text-sm text-gray-600">{exercise.category} • {exercise.equipment}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Programs List & Editor */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Programs List */}
+            <div className="bg-white rounded-lg shadow p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-2xl font-semibold">My Programs</h2>
+                <button
+                  onClick={createNewProgram}
+                  className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                >
+                  <Plus size={20} /> New Program
+                </button>
+              </div>
+
+              <div className="space-y-2">
+                {programs.map(program => (
+                  <div
+                    key={program.id}
+                    className={`p-4 rounded flex justify-between items-center cursor-pointer ${
+                      currentProgram?.id === program.id ? 'bg-blue-100 border-2 border-blue-500' : 'bg-gray-50 hover:bg-gray-100'
+                    }`}
+                    onClick={() => setCurrentProgram(program)}
+                  >
+                    <div>
+                      <div className="font-medium">{program.name}</div>
+                      <div className="text-sm text-gray-600">
+                        {program.weeks.length} week{program.weeks.length !== 1 ? 's' : ''} • {program.weeks.reduce((sum, w) => sum + w.days.length, 0)} days
+                      </div>
+                    </div>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={(e) => { e.stopPropagation(); duplicateProgram(program); }}
+                        className="p-2 text-blue-600 hover:bg-blue-50 rounded"
+                        title="Duplicate"
+                      >
+                        <Copy size={18} />
+                      </button>
+                      <button
+                        onClick={(e) => { e.stopPropagation(); exportProgramCSV(program); }}
+                        className="p-2 text-green-600 hover:bg-green-50 rounded"
+                        title="Export CSV"
+                      >
+                        <FileSpreadsheet size={18} />
+                      </button>
+                      <button
+                        onClick={(e) => { e.stopPropagation(); exportProgramJSON(program); }}
+                        className="p-2 text-purple-600 hover:bg-purple-50 rounded"
+                        title="Export JSON"
+                      >
+                        <Download size={18} />
+                      </button>
+                      <button
+                        onClick={(e) => { e.stopPropagation(); deleteProgram(program.id); }}
+                        className="p-2 text-red-600 hover:bg-red-50 rounded"
+                        title="Delete"
+                      >
+                        <Trash2 size={18} />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Program Editor */}
+            {currentProgram && (
+              <div className="bg-white rounded-lg shadow p-6">
+                <input
+                  type="text"
+                  value={currentProgram.name}
+                  onChange={(e) => updateProgramName(e.target.value)}
+                  className="text-2xl font-semibold w-full p-2 border rounded mb-4"
+                />
+
+                <button
+                  onClick={addWeek}
+                  className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 mb-4"
+                >
+                  <Plus size={20} /> Add Week
+                </button>
+
+                <div className="space-y-8">
+                  {currentProgram.weeks.map((week, weekIndex) => (
+                    <div key={week.id} className="border-2 border-gray-300 rounded-lg p-4 bg-gray-50">
+                      <div className="flex justify-between items-center mb-4">
+                        <input
+                          type="text"
+                          value={week.name}
+                          onChange={(e) => updateWeekName(week.id, e.target.value)}
+                          className="text-xl font-semibold p-2 border rounded bg-white"
+                        />
+                        <div className="flex gap-2">
+                          <button
+                            onClick={() => addDay(week.id)}
+                            className="flex items-center gap-1 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 text-sm"
+                          >
+                            <Plus size={16} /> Add Day
+                          </button>
+                          <button
+                            onClick={() => removeWeek(week.id)}
+                            className="p-2 text-red-600 hover:bg-red-50 rounded"
+                          >
+                            <Trash2 size={18} />
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {week.days.map((day) => (
+                          <div key={day.id} className="border-2 border-blue-200 rounded-lg p-3 bg-white">
+                            <div className="flex justify-between items-center mb-3">
+                              <input
+                                type="text"
+                                value={day.name}
+                                onChange={(e) => updateDayName(week.id, day.id, e.target.value)}
+                                className="text-lg font-semibold p-1 border rounded flex-1 mr-2"
+                              />
+                              <button
+                                onClick={() => removeDay(week.id, day.id)}
+                                className="p-1 text-red-600 hover:bg-red-50 rounded"
+                              >
+                                <Trash2 size={16} />
+                              </button>
+                            </div>
+
+                            <div className="space-y-2 mb-3">
+                              {day.exercises.map((exercise) => (
+                                <div key={exercise.id} className="bg-gray-50 p-2 rounded text-sm">
+                                  <div className="flex justify-between items-start mb-1">
+                                    <div className="font-medium text-sm">{exercise.name}</div>
+                                    <button
+                                      onClick={() => removeExerciseFromDay(week.id, day.id, exercise.id)}
+                                      className="text-red-600 hover:bg-red-50 rounded p-0.5"
+                                    >
+                                      <Trash2 size={14} />
+                                    </button>
+                                  </div>
+                                  <div className="grid grid-cols-2 gap-1">
+                                    <div>
+                                      <label className="text-xs text-gray-600">Sets</label>
+                                      <input
+                                        type="number"
+                                        value={exercise.sets}
+                                        onChange={(e) => updateExerciseInDay(week.id, day.id, exercise.id, 'sets', parseInt(e.target.value))}
+                                        className="w-full p-1 border rounded text-sm"
+                                      />
+                                    </div>
+                                    <div>
+                                      <label className="text-xs text-gray-600">Reps</label>
+                                      <input
+                                        type="number"
+                                        value={exercise.reps}
+                                        onChange={(e) => updateExerciseInDay(week.id, day.id, exercise.id, 'reps', parseInt(e.target.value))}
+                                        className="w-full p-1 border rounded text-sm"
+                                      />
+                                    </div>
+                                  </div>
+                                  <input
+                                    type="text"
+                                    placeholder="Notes"
+                                    value={exercise.notes}
+                                    onChange={(e) => updateExerciseInDay(week.id, day.id, exercise.id, 'notes', e.target.value)}
+                                    className="w-full p-1 border rounded mt-1 text-xs"
+                                  />
+                                </div>
+                              ))}
+                            </div>
+
+                            <select
+                              onChange={(e) => {
+                                const exerciseId = parseInt(e.target.value);
+                                const exercise = exercises.find(ex => ex.id === exerciseId);
+                                if (exercise) {
+                                  addExerciseToDay(week.id, day.id, exercise);
+                                  e.target.value = '';
+                                }
+                              }}
+                              className="w-full p-2 border rounded bg-blue-50 text-sm"
+                              defaultValue=""
+                            >
+                              <option value="" disabled>+ Add Exercise</option>
+                              {filteredExercises.map(ex => (
+                                <option key={ex.id} value={ex.id}>{ex.name}</option>
+                              ))}
+                            </select>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default WorkoutProgramDesigner;
